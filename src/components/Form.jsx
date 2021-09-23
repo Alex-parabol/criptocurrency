@@ -1,5 +1,6 @@
-import React from 'react'
+import React, {useState} from 'react'
 import styled from '@emotion/styled'
+import useMoneda from '../hooks/useMoneda'
 
 const Boton = styled.input`
     margin-top: 20px;
@@ -20,8 +21,16 @@ const Boton = styled.input`
 `
 
 const Form =()=>{
+
+    // utilizamos el custom hook useMoneda, siendo moneda el state del custom hook,seleccionar la función del render 
+    // y setState la función 
+
+    const [moneda, Seleccionar, setState] = useMoneda('Elige tu Moneda')
+
     return (
         <form >
+
+            <Seleccionar/>
             <Boton
                 type='submit'
                 value='calcular'
